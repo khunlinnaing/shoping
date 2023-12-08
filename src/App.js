@@ -21,11 +21,12 @@ function App() {
   };
     
     const addToCart = (itemId) =>{
-        setCartItems((prev) =>({...prev, [itemId]: prev[itemId] + 1}))
+        setCartItems((prev) =>({...prev, [itemId]: prev[itemId]+1}))
     }
 
     const removeFromCart = (itemId) =>{
         setCartItems((prev) =>({...prev, [itemId]: prev[itemId] - 1}))
+        console.log(cartItems)
     }
     const updateCartItemCount = (newAmount, itemId) => {
       setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
@@ -33,6 +34,7 @@ function App() {
     const checkout = () => {
       setCartItems(getDefaultCart());
     };
+    console.log(cartItems)
     const contextVal = { cartItems, addToCart, removeFromCart, updateCartItemCount, checkout, getTotalCartAmount };
   return (
     <div className='App'>
